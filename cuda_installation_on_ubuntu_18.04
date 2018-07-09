@@ -1,5 +1,5 @@
 #!/bin/bash
-## This gist is a step by step instructions to install cuda v9.0 and cudnn 7.1 on ubuntu 18.04
+## This gist contains step by step instructions to install cuda v9.0 and cudnn 7.1 in ubuntu 18.04
 ## official guide: http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html 
 
 ### steps ####
