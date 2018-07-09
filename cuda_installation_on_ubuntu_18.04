@@ -1,7 +1,7 @@
 # first get the PPA repository driver
 sudo add-apt-repository ppa:graphics-drivers/ppa
 
-# install nvidai driver 
+# install nvidia driver 
 sudo apt install nvidia-384 nvidia-384-dev
 
 # install other import packages
@@ -29,7 +29,7 @@ sudo ln -s /usr/bin/g++-6 /usr/local/cuda/bin/g++
 
 # setup your paths
 echo 'export PATH=/usr/local/cuda-9.0/bin:$PATH' >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH' >> ~/.bash.rc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
 
 # install cuDNN v7.1
