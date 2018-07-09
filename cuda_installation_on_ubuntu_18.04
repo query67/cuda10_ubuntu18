@@ -1,3 +1,23 @@
+#!/bin/bash
+## This gist is a step by step instructions to install cuda v9.0 and cudnn 7.1 on ubuntu 18.04
+## official guide: http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html 
+
+### steps ####
+# verify the system has a cuda-capable gpu
+# verify the system has gcc installed
+# download and install the nvidia cuda toolkit
+# download cudnn
+# setup environment variables
+# verify the system
+###
+
+### checking your NVIDIA gpu is cuda enable or not got to https://developer.nvidia.com/cuda-gpus
+### to verify your gpu is cuda enable enter in to the comman line
+lspci | grep -i nvidia
+
+### gcc compiler is required for development using the cuda toolkit. to verify the version of gcc install enter
+gcc --version
+
 # first get the PPA repository driver
 sudo add-apt-repository ppa:graphics-drivers/ppa
 
