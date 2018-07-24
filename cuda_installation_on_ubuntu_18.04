@@ -1,18 +1,16 @@
 #!/bin/bash
 ## This gist contains step by step instructions to install cuda v9.0 and cudnn 7.1 in ubuntu 18.04
-## official guide: http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html 
+## see official guide: http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html 
 
 ### steps ####
 # verify the system has a cuda-capable gpu
 # verify the system has gcc installed
-# download and install the nvidia cuda toolkit
-# download cudnn
+# download and install the nvidia cuda toolkit and cudnn
 # setup environment variables
 # verify the system
 ###
 
-### checking your NVIDIA gpu is cuda enable or not got to https://developer.nvidia.com/cuda-gpus
-### to verify your gpu is cuda enable enter in to the comman line
+### to verify your gpu is cuda enable check
 lspci | grep -i nvidia
 
 ### gcc compiler is required for development using the cuda toolkit. to verify the version of gcc install enter
@@ -38,7 +36,7 @@ wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.
 chmod +x cuda_9.0.176_384.81_linux-run 
 sudo ./cuda_9.0.176_384.81_linux-run --override
 
-# Answer questions following while installation begin
+# answer following questions while installation begin
 # You are attempting to install on an unsupported configuration. Do you wish to continue? y
 # Install NVIDIA Accelerated Graphics Driver for Linux-x86_64 384.81? n
 # Install the CUDA 9.0 Toolkit? y
@@ -59,9 +57,12 @@ CUDNN_TAR_FILE="cudnn-9.0-linux-x64-v7.1"
 wget http://developer.download.nvidia.com/compute/redist/cudnn/v7.1/${CUDNN_TAR_FILE}
 tar -xzvf ${CUDNN_TAR_FILE}
 
-#copy the following files into the cuda toolkit directory.
+# copy the following files into the cuda toolkit directory.
 sudo cp -P cuda/include/cudnn.h /usr/local/cuda-9.0/include
 sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-9.0/lib64/
 sudo chmod a+r /usr/local/cuda-9.0/lib64/libcudnn*
 
+# to verify the system, type
+nvidia-smi
+nvcc -V
 
