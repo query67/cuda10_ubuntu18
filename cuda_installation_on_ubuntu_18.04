@@ -1,13 +1,11 @@
 #!/bin/bash
-## This gist contains step by step instructions to install cuda v9.0 and cudnn 7.1 in ubuntu 18.04
-## see official guide: http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html 
+## This gist contains step by step instructions to install cuda v9.0 and cudnn 7.2 in ubuntu 18.04
 
 ### steps ####
 # verify the system has a cuda-capable gpu
-# verify the system has gcc installed
 # download and install the nvidia cuda toolkit and cudnn
-# setup environment variables
-# verify the system
+# setup environmental variables
+# verify the installation
 ###
 
 ### to verify your gpu is cuda enable check
@@ -50,11 +48,11 @@ echo 'export PATH=/usr/local/cuda-9.0/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
 
-# install cuDNN v7.1
+# install cuDNN v7.2
 # in order to download cuDNN you have to regeistered here https://developer.nvidia.com/developer-program/signup
-# then download cuDNN v7.1 form https://developer.nvidia.com/cudnn
-CUDNN_TAR_FILE="cudnn-9.0-linux-x64-v7.1"
-wget http://developer.download.nvidia.com/compute/redist/cudnn/v7.1/${CUDNN_TAR_FILE}
+# then download cuDNN v7.2 form https://developer.nvidia.com/cudnn
+CUDNN_TAR_FILE="cudnn-9.0-linux-x64-v7.2.1.38"
+wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.2.1/prod/9.0_20180806/${CUDNN_TAR_FILE}
 tar -xzvf ${CUDNN_TAR_FILE}
 
 # copy the following files into the cuda toolkit directory.
@@ -62,7 +60,6 @@ sudo cp -P cuda/include/cudnn.h /usr/local/cuda-9.0/include
 sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-9.0/lib64/
 sudo chmod a+r /usr/local/cuda-9.0/lib64/libcudnn*
 
-# to verify the system, check
+# finally, to verify the installation, check
 nvidia-smi
 nvcc -V
-
